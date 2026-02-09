@@ -17,7 +17,7 @@ function Products() {
 
   const getProductList = async () => {
     try{
-      let products = await productList();
+      let products = await productList(10);
     console.log(products);
     }catch(error){
       console.log(error.message);

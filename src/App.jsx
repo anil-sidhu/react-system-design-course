@@ -4,10 +4,12 @@ import Header from './components/Header'
 import AutRoutes from './routes/auth.routes'
 import UserRoutes
  from './routes/user.routes'
+import OtherRoutes from './routes/Other.routes'
 function App() {
   const allRoutes=[
     ...AutRoutes,
-    ...UserRoutes
+    ...UserRoutes,
+    ...OtherRoutes
   ]
   console.log(allRoutes);
   
@@ -20,6 +22,7 @@ function App() {
             <Route key={index} {...item}  />
           ))
         }
+       
       </Routes>
     </>
   )

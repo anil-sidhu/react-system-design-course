@@ -1,10 +1,10 @@
-// import '../assets/css/app.css'
-
+import { Products } from "../features/products"
+import '../assets/css/App.css'
 function App() {
 
   return (
     <>
-    <h1>Hello</h1>
+    <Products />
     </>
   )
 }

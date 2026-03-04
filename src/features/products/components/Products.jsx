@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { productList } from "../services/productServices"
 import DisplayProducts from "./DisplayProducts"
+import { PRODUCT_URL } from "../../../shared/services/api/endPoints"
 
 function Products() {
 
@@ -12,29 +13,31 @@ function Products() {
 
 
     const getProductList = async () => {
+
         try {
-            let products = await productList(10);
-            setProductListData(products)
-            console.log(products);
+            let response = await fetch(PRODUCT_URL)
+            response = await response.json()
+            console.log(response);
+            setProductListData(response.products)
+
         } catch (error) {
             console.log(error.message);
 
 
         }
     }
-  const getPrice=(price)=>{
-    alert("this product price is "+ price)
-  }
+    const getPrice = (price) => {
+        alert("this product price is " + price)
+    }
     return (
         <>
             <h1 >Product List</h1>
             {
                 productListData.map((productData) => (
-                    <DisplayProducts 
-                    key={productData.id}
-                     productData={productData}
-                     viewPrice={getPrice}
-                      />
+                    <h3 key={productData.id} >
+                        <li className="list-bottom-border" >{productData?.title}</li>
+                        <button onClick={() => getPrice(productData.price)} >View Price</button>
+                    </h3>
                 ))
             }
 

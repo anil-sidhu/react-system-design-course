@@ -9,4 +9,4 @@ function DisplayProducts({productData,viewPrice}){
     )
 }
 
-export default DisplayProducts
+export default DisplayProducts 

@@ -15,7 +15,7 @@ function Products() {
     const getProductList = async () => {
 
         try {
-            let response = await fetch(PRODUCT_URL)
+            let response = await fetch("https://dummyjson.com/products?limit=5")
             response = await response.json()
             console.log(response);
             setProductListData(response.products)
@@ -34,10 +34,11 @@ function Products() {
             <h1 >Product List</h1>
             {
                 productListData.map((productData) => (
-                    <h3 key={productData.id} >
+                    <p key={productData.id} >
+                        <input type="checkbox" name="products"  />
                         <li className="list-bottom-border" >{productData?.title}</li>
-                        <button onClick={() => getPrice(productData.price)} >View Price</button>
-                    </h3>
+                        {/* <button onClick={() => getPrice(productData.price)} >View Price</button> */}
+                    </p>
                 ))
             }
 
